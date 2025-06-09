@@ -178,8 +178,8 @@ export const AboutMe = (): JSX.Element => {
             >
               <div className="flex items-center gap-6 mb-8">
                 <img
-                  src="/go-girl-logo.png"
-                  alt="Go Girl Community Logo"
+                  src="/IMG_0426.png"
+                  alt="Vaanya pic 2"
                   className="w-24 h-24"
                 />
                 <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-4xl">
