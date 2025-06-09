@@ -1,123 +1,144 @@
 import React from "react";
-import { Card, CardContent } from "../../components/ui/card";
-import { GithubIcon, ExternalLinkIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+
+const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const ProjectCard = styled(motion.div)`
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+`;
+
+const ProjectOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 76, 228, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1rem, 5vw, 2rem);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  @media (max-width: 768px) {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 76, 228, 0.9), transparent);
+  }
+
+  ${ProjectCard}:hover & {
+    opacity: 1;
+  }
+
+  ${ProjectCard}:hover ${ProjectImage} {
+    transform: scale(1.05);
+  }
+`;
+
+const ProjectNumber = styled.span`
+  font-family: 'Lora', Helvetica;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: white;
+  margin-bottom: 0.5rem;
+`;
+
+const ProjectTitle = styled.h3`
+  font-family: 'Lora', Helvetica;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: white;
+  margin-bottom: 1rem;
+`;
+
+const TagList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const Tag = styled.span`
+  font-family: 'Lohit Tamil', Helvetica;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid white;
+  border-radius: 999px;
+`;
 
 export const Projects = (): JSX.Element => {
   const projects = [
     {
+      number: "01",
       title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      githubUrl: "#",
-      liveUrl: "#",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tags: ["UX/UI", "Website Design", "React", "Node.js"],
     },
     {
+      number: "02",
       title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS"],
-      githubUrl: "#",
-      liveUrl: "#",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tags: ["Product Design", "UX Research", "TypeScript"],
     },
     {
+      number: "03",
       title: "Weather Dashboard",
-      description: "A responsive weather dashboard that provides current weather conditions and forecasts using OpenWeatherMap API with beautiful data visualizations.",
-      technologies: ["React", "Chart.js", "OpenWeatherMap API", "CSS3"],
-      githubUrl: "#",
-      liveUrl: "#",
-      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tags: ["Data Visualization", "API Integration", "React"],
     },
     {
+      number: "04",
       title: "Portfolio Website",
-      description: "A modern, responsive portfolio website showcasing my work and skills. Built with React and featuring smooth animations and interactive elements.",
-      technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
-      githubUrl: "#",
-      liveUrl: "#",
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600"
-    }
+      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tags: ["Website Design", "Animation", "Branding"],
+    },
   ];
 
   return (
-    <main className="bg-[#fffef3] min-h-screen w-full pt-32">
-      <div className="max-w-[1440px] mx-auto px-8 pb-24">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-6xl tracking-[-1.2px] mb-4">
-            My Projects
-          </h1>
-          <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.4px] max-w-3xl mx-auto">
-            A collection of projects that showcase my skills in web development, 
-            UX design, and problem-solving. Each project represents a unique challenge 
-            and learning experience.
-          </p>
-        </div>
+    <main className="bg-[#fffef3] min-h-screen w-full pt-24 md:pt-32">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 pb-24">
+        <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-4xl md:text-7xl mb-12 md:mb-20">
+          case studies
+        </h1>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <ProjectGrid>
           {projects.map((project, index) => (
-            <Card key={index} className="group overflow-hidden rounded-[20px] border-2 border-[#004ce4] bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardContent className="p-8">
-                <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-3xl tracking-[-0.6px] mb-4">
-                  {project.title}
-                </h3>
-                <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-lg leading-relaxed mb-6">
-                  {project.description}
-                </p>
-                
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-[#004ce4]/10 text-[#004ce4] rounded-full text-sm font-['Lohit_Tamil-Regular',Helvetica]"
-                    >
-                      {tech}
-                    </span>
+            <ProjectCard
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <ProjectImage src={project.image} alt={project.title} />
+              <ProjectOverlay>
+                <ProjectNumber>{project.number}</ProjectNumber>
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <TagList>
+                  {project.tags.map((tag, tagIndex) => (
+                    <Tag key={tagIndex}>{tag}</Tag>
                   ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.githubUrl}
-                    className="flex items-center gap-2 px-4 py-2 border-2 border-[#004ce4] text-[#004ce4] rounded-lg hover:bg-[#004ce4] hover:text-white transition-colors duration-200"
-                  >
-                    <GithubIcon className="w-5 h-5" />
-                    <span className="font-['Lohit_Tamil-Regular',Helvetica]">Code</span>
-                  </a>
-                  <a
-                    href={project.liveUrl}
-                    className="flex items-center gap-2 px-4 py-2 bg-[#004ce4] text-white rounded-lg hover:bg-[#004ce4]/80 transition-colors duration-200"
-                  >
-                    <ExternalLinkIcon className="w-5 h-5" />
-                    <span className="font-['Lohit_Tamil-Regular',Helvetica]">Live Demo</span>
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+                </TagList>
+              </ProjectOverlay>
+            </ProjectCard>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-20">
-          <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-xl mb-6">
-            Interested in collaborating or have a project in mind?
-          </p>
-          <a
-            href="mailto:vaanya@example.com"
-            className="inline-block px-8 py-4 bg-[#004ce4] text-white rounded-[20px] font-['Lora',Helvetica] text-xl hover:bg-[#004ce4]/80 transition-colors duration-200"
-          >
-            Let's work together
-          </a>
-        </div>
+        </ProjectGrid>
       </div>
     </main>
   );

@@ -1,0 +1,15 @@
+/* Add your global styles here */
+
+
+
+/* Show default cursor for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  /* Hide custom cursor on touch devices */
+  .custom-cursor {
+    display: none !important;
+  }
+}
