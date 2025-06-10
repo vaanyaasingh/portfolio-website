@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { ChevronDown, Github, ExternalLink } from 'lucide-react';
+import { Card } from '../../components/ui/card';
+import { Footer } from "../../components/Footer";
 
-const ProjectCard = styled.div`
+const ProjectCard = styled(Card)`
   border: 1px solid #004ce4;
   border-radius: 20px;
   padding: 1.5rem;
@@ -62,6 +64,15 @@ const LinkButton = styled.a`
   }
 `;
 
+const DetailCard = styled(Card)`
+  background: white;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+`;
+
 interface ProjectDetail {
   title: string;
   detail: string;
@@ -112,7 +123,7 @@ export const Projects = (): JSX.Element => {
         [
           {
             title: '🎨 Brand & Community',
-            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community’s mission and branding.'
+            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community\'s mission and branding.'
           },
           {
             title: '💫 CI/CD and Deployment',
@@ -212,76 +223,97 @@ export const Projects = (): JSX.Element => {
   return (
     <main className="bg-[#fffef3] min-h-screen w-full pt-24 md:pt-32">
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 pb-24">
-      <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-4xl md:text-7xl mb-12 md:mb-20 text-center w-full">
-  projects
-</h1>
+        <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-4xl md:text-7xl mb-8 md:mb-20 text-center w-full">
+          projects
+        </h1>
 
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
-          >
-            <ProjectHeader>
-              <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-2xl">
-                {project.title}
-              </h3>
-              <motion.div
-                animate={{ rotate: expandedId === project.id ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ChevronDown className="w-5 h-5 text-[#004ce4]" />
-              </motion.div>
-            </ProjectHeader>
-
-            <p className="font-['Lohit_Tamil',Helvetica] text-[#004ce4] mt-2">
-              {project.brief}
-            </p>
-
-            <TechStack>
-              {project.techStack.map((tech, index) => (
-                <TechTag key={index}>{tech}</TechTag>
-              ))}
-            </TechStack>
-
-            <AnimatePresence>
-              {expandedId === project.id && (
+        <div className="grid grid-cols-1 gap-6 md:gap-8">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
+              className="transform transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <ProjectHeader className="flex-col sm:flex-row gap-4">
+                <div className="flex-1">
+                  <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-xl md:text-2xl mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="font-['Lohit_Tamil',Helvetica] text-[#004ce4] text-base md:text-lg">
+                    {project.brief}
+                  </p>
+                </div>
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
+                  animate={{ rotate: expandedId === project.id ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="self-start sm:self-center"
                 >
-                  <div className="mt-4 space-y-4 font-['Lohit_Tamil',Helvetica] text-[#004ce4]">
-                    <p>{project.description[0]}</p>
-                    {(project.description[1] as ProjectDetail[]).map((detail, index) => (
-                      <div key={index} className="mt-2">
-                        <h4 className="font-['Lora',Helvetica] text-lg mb-1">
-                          {detail.title}
-                        </h4>
-                        <p>{detail.detail}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <ProjectLinks>
-                    <LinkButton href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" />
-                      GitHub
-                    </LinkButton>
-                    {project.live && (
-                      <LinkButton href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4" />
-                        Live Demo
-                      </LinkButton>
-                    )}
-                  </ProjectLinks>
+                  <ChevronDown className="w-5 h-5 text-[#004ce4]" />
                 </motion.div>
-              )}
-            </AnimatePresence>
-          </ProjectCard>
-        ))}
+              </ProjectHeader>
+
+              <TechStack className="mt-4">
+                {project.techStack.map((tech, index) => (
+                  <TechTag key={index} className="text-sm md:text-base">
+                    {tech}
+                  </TechTag>
+                ))}
+              </TechStack>
+
+              <AnimatePresence>
+                {expandedId === project.id && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-6 space-y-4">
+                      {project.description[1].map((detail, index) => (
+                        <DetailCard key={index} className="p-4 md:p-6">
+                          <h4 className="font-['Lora',Helvetica] text-[#004ce4] text-lg md:text-xl mb-2">
+                            {detail.title}
+                          </h4>
+                          <p className="font-['Lohit_Tamil',Helvetica] text-[#004ce4] text-base md:text-lg">
+                            {detail.detail}
+                          </p>
+                        </DetailCard>
+                      ))}
+
+                      <ProjectLinks className="flex-wrap">
+                        {project.github && (
+                          <LinkButton
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm md:text-base"
+                          >
+                            <Github className="w-4 h-4 md:w-5 md:h-5" />
+                            View on GitHub
+                          </LinkButton>
+                        )}
+                        {project.live && (
+                          <LinkButton
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm md:text-base"
+                          >
+                            <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
+                            View Live Demo
+                          </LinkButton>
+                        )}
+                      </ProjectLinks>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </ProjectCard>
+          ))}
+        </div>
       </div>
+      <Footer />
     </main>
   );
 };

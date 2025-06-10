@@ -4,7 +4,6 @@ import { Header } from "./components/layout/Header";
 import { AboutMe } from "./screens/AboutMe";
 import { Projects } from "./screens/Projects";
 import { Resume } from "./screens/Resume";
-import CustomCursor from "./components/CustomCursor";
 import "./styles/globals.css";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AboutMe />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Resume />} />
         </Routes>
       </div>
     </Router>

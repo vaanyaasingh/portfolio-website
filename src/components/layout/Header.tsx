@@ -10,10 +10,32 @@ const MobileMenuButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 51;
+  }
+`;
+
+const Backdrop = styled.div<{ isOpen: boolean }>`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 76, 228, 0.1);
+    backdrop-filter: blur(4px);
+    opacity: ${props => props.isOpen ? 1 : 0};
+    pointer-events: ${props => props.isOpen ? 'auto' : 'none'};
+    transition: opacity 0.3s ease;
+    z-index: 49;
   }
 `;
 
 const Nav = styled.nav<{ isOpen: boolean }>`
+  display: flex;
+  gap: 3rem;
+  
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
@@ -26,6 +48,9 @@ const Nav = styled.nav<{ isOpen: boolean }>`
     transform: translateX(${props => props.isOpen ? '0' : '100%'});
     transition: transform 0.3s ease;
     box-shadow: ${props => props.isOpen ? '-4px 0 20px rgba(0, 0, 0, 0.1)' : 'none'};
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 50;
   }
 `;
 
@@ -36,7 +61,7 @@ export const Header = (): JSX.Element => {
   const navItems = [
     { text: "about", href: "/", key: "/" },
     { text: "projects", href: "/projects", key: "/projects" },
-    { text: "contact", href: "/resume", key: "/resume" },
+    { text: "contact", href: "/contact", key: "/contact" },
   ];
 
   const isActive = (path: string) => {
@@ -45,10 +70,13 @@ export const Header = (): JSX.Element => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = !isMenuOpen ? 'hidden' : 'auto';
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -73,8 +101,10 @@ export const Header = (): JSX.Element => {
             )}
           </MobileMenuButton>
 
+          <Backdrop isOpen={isMenuOpen} onClick={closeMenu} />
+
           {/* Navigation */}
-          <Nav isOpen={isMenuOpen} className="flex md:gap-12">
+          <Nav isOpen={isMenuOpen}>
             {navItems.map((item) => (
               <Link
                 key={item.key}
@@ -82,7 +112,7 @@ export const Header = (): JSX.Element => {
                 onClick={closeMenu}
                 className={`font-['Lora',Helvetica] font-normal text-[#004ce4] text-xl tracking-wide hover:opacity-70 transition-opacity duration-200 
                   ${isActive(item.key) ? 'opacity-70' : ''}
-                  md:text-xl block mb-8 md:mb-0`}
+                  md:text-xl`}
               >
                 {item.text}
               </Link>

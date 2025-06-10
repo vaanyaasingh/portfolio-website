@@ -36,12 +36,12 @@ export const AboutMe = (): JSX.Element => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="text-center px-4"
           >
-            <h3 className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-[45px] tracking-[-1.28px]">
+            <h3 className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl md:text-[45px] tracking-[-1.28px]">
               hi, my name is
             </h3>
-            <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-8xl tracking-[-1.92px] mt-2">
+            <h1 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-5xl md:text-8xl tracking-[-1.92px] mt-2">
               Vaanya Singh
             </h1>
           </motion.div>
@@ -51,7 +51,7 @@ export const AboutMe = (): JSX.Element => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex gap-8 mt-12"
+            className="flex gap-6 md:gap-8 mt-8 md:mt-12"
           >
             {socialLinks.map((link, index) => (
               <motion.a
@@ -72,38 +72,38 @@ export const AboutMe = (): JSX.Element => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mt-16 relative flex items-center flex-wrap justify-center gap-4"
+            className="mt-12 md:mt-16 relative flex items-center flex-wrap justify-center gap-4 px-4"
           >
-            <span className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-4xl tracking-[-0.96px]">
+            <span className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl md:text-4xl tracking-[-0.96px]">
               a
             </span>
 
-            <Card className="w-[634px] h-[142px] rounded-[20px] border-2 border-solid border-[#004ce4] bg-transparent hover:bg-white/50 transition-colors duration-300">
-              <CardContent className="p-0 flex items-center justify-center h-full">
-                <p className="font-['Lora',Helvetica] font-normal italic text-[#004ce4] text-5xl text-center tracking-[-0.96px] px-4">
+            <Card className="w-full md:w-[634px] h-auto md:h-[142px] rounded-[20px] border-2 border-solid border-[#004ce4] bg-transparent hover:bg-white/50 transition-colors duration-300">
+              <CardContent className="p-4 md:p-0 flex items-center justify-center h-full">
+                <p className="font-['Lora',Helvetica] font-normal italic text-[#004ce4] text-3xl md:text-5xl text-center tracking-[-0.96px]">
                   Computer Science Engineer + UX Designer
                 </p>
               </CardContent>
             </Card>
 
-            <span className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-4xl tracking-[-0.96px]">
+            <span className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl md:text-4xl tracking-[-0.96px]">
               (in progress)
             </span>
           </motion.div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="min-h-screen pt-5 space-y-24">
+        <section id="about" className="min-h-screen pt-5 space-y-12 md:space-y-24 px-4 md:px-0">
           {/* First About Block */}
-          <div className="flex gap-12 flex-col lg:flex-row items-center lg:items-start">
+          <div className="flex gap-8 md:gap-12 flex-col lg:flex-row items-center lg:items-start">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative flex-shrink-0"
+              className="relative flex-shrink-0 w-full md:w-auto"
             >
               <img
-                className="w-[578px] h-[832px] object-cover rounded-[20px]"
+                className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya Singh"
                 src="/img-0417-1.png"
               />
@@ -113,9 +113,9 @@ export const AboutMe = (): JSX.Element => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-[646px] lg:mt-[200px]"
+              className="max-w-full md:max-w-[646px] lg:mt-[200px]"
             >
-              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.64px] leading-normal">
+              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-xl md:text-2xl tracking-[-0.64px] leading-normal">
               I'm a Computer Science student at RV College of Engineering 🧑‍💻 who loves building things that are useful, thoughtful, and sometimes just fun ✨
                 <br />
                 <br />
@@ -130,14 +130,14 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
           </div>
 
           {/* Go Girl Community Section */}
-          <div className="flex gap-12 flex-col-reverse lg:flex-row items-center lg:items-start mt-[-100px]">
+          <div className="flex gap-8 md:gap-12 flex-col-reverse lg:flex-row items-center lg:items-start mt-0 lg:mt-[-100px]">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-[646px] lg:mt-[100px] lg:ml-[100px]"
+              className="max-w-full md:max-w-[646px] lg:mt-[100px] lg:ml-[100px]"
             >
-              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.64px] leading-relaxed">
+              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-xl md:text-2xl tracking-[-0.64px] leading-relaxed">
               I'm passionate about making tech more inclusive. As a Program Manager at Go Girl, 
               I've lead initiatives that introduce young girls to 
               the world of coding — reaching over 2000+ students across India.
@@ -153,17 +153,17 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
             </motion.div>
 
             <motion.div
-  initial={{ opacity: 0, x: 50 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true }}
-  className="relative mt-[-80px]" // shift upward by 20px
->
-  <img
-    className="w-[578px] h-[832px] object-cover rounded-[20px]"
-    alt="Vaanya at Go Girl Community"
-    src="/IMG_0426.PNG"
-  />
-</motion.div>
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative mt-0 lg:mt-[-80px] w-full md:w-auto"
+            >
+              <img
+                className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
+                alt="Vaanya at Go Girl Community"
+                src="/IMG_0426.PNG"
+              />
+            </motion.div>
           </div>
         </section>
       </div>
