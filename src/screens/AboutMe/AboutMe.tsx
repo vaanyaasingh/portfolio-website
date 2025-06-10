@@ -1,14 +1,12 @@
+import React from "react";
 import {
-  ArrowDownIcon,
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
 } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
 import { motion } from "framer-motion";
-import Skills from "../../components/Skills";
-import Timeline from "../../components/Timeline";
-import Contact from "../../components/Contact";
+import { Footer } from "../../components/Footer";
 
 export const AboutMe = (): JSX.Element => {
   const socialLinks = [
@@ -29,29 +27,9 @@ export const AboutMe = (): JSX.Element => {
     },
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <main className="bg-[#fffef3] min-h-screen w-full">
-      {/* Navigation Dots */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-4">
-        {["hero", "about", "skills", "timeline", "contact"].map((section) => (
-          <motion.button
-            key={section}
-            className="w-3 h-3 rounded-full border-2 border-[#004ce4] bg-[#fffef3] hover:bg-[#004ce4] transition-colors duration-300"
-            onClick={() => scrollToSection(section)}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-[1440px] mx-auto relative pb-24 px-8">
+      <div className="max-w-[1440px] mx-auto relative px-8">
         {/* Hero Section */}
         <section id="hero" className="min-h-screen flex flex-col items-center justify-center">
           <motion.div
@@ -112,21 +90,6 @@ export const AboutMe = (): JSX.Element => {
               (in progress)
             </span>
           </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer"
-            onClick={() => scrollToSection("about")}
-            whileHover={{ y: 5 }}
-          >
-            <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-lg mb-2">
-              scroll down
-            </p>
-            <ArrowDownIcon className="w-6 h-6 text-[#004ce4] animate-bounce" />
-          </motion.div>
         </section>
 
         {/* About Section */}
@@ -153,114 +116,58 @@ export const AboutMe = (): JSX.Element => {
               className="max-w-[646px] lg:mt-[200px]"
             >
               <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.64px] leading-normal">
-                I'm currently studying Computer Science at RV College of
-                Engineering, where my world revolves around building — apps,
-                ideas, and communities.
+              I'm a Computer Science student at RV College of Engineering 🧑‍💻 who loves building things that are useful, thoughtful, and sometimes just fun ✨
                 <br />
                 <br />
-                Between writing code and crafting screens, I'm exploring how
-                design can drive change.
+                Over the past few years, I've worked on AI/ML projects 🤖, built websites 🌐, and tried to use my skills to make a difference 💡
+Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠️ together.
+
                 <br />
                 <br />
-                I am a Senior Associate at Entrepreneurship Club of RVCE.
-                👩🎨 doing what I do best Design and Tech :)
+                This portfolio is a space where I bring together all the things I've been building, learning, and growing through 🌱
               </p>
             </motion.div>
           </div>
 
           {/* Go Girl Community Section */}
-          <div className="flex gap-12 flex-col-reverse lg:flex-row items-center lg:items-start">
+          <div className="flex gap-12 flex-col-reverse lg:flex-row items-center lg:items-start mt-[-100px]">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-[646px] lg:mt-[100px]"
+              className="max-w-[646px] lg:mt-[100px] lg:ml-[100px]"
             >
-              <div className="flex items-center gap-6 mb-8">
-                <img
-                  src="/IMG_0426.png"
-                  alt="Vaanya pic 2"
-                  className="w-24 h-24"
-                />
-                <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-4xl">
-                  Code meets Community
-                </h3>
-              </div>
-
-              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.64px] leading-relaxed mb-8">
-                As a Program Manager at Go Girl Organisation, I'm on a mission to empower underserved girls through coding education. We've already reached 100+ girls nationwide! 🚀
+              <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-2xl tracking-[-0.64px] leading-relaxed">
+              I'm passionate about making tech more inclusive. As a Program Manager at Go Girl, 
+              I've lead initiatives that introduce young girls to 
+              the world of coding — reaching over 2000+ students across India.
                 <br /><br />
-                What makes me proud:
+                I manage the Go Girl Community, a growing space where women in tech connect, learn, and support each other. 
+                I take care of community-building and the visual identity
+                 — from designing social media posts to shaping our branding and outreach strategy.
+                <br />
+                <br />
+                In 2024, I got the chance to represent Go Girl at GHCI, 
+                where I shared our vision of making tech education accessible and empowering for all. 🌟
               </p>
-
-              <div className="space-y-6">
-                <Card className="rounded-[20px] border-2 border-[#004ce4] bg-white/80 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-xl tracking-[-0.4px] mb-2">
-                      🎨 Brand & Community
-                    </h3>
-                    <p className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-lg">
-                      Crafted the visual identity and built an engaging community website from scratch using React and Figma.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="rounded-[20px] border-2 border-[#004ce4] bg-white/80 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-xl tracking-[-0.4px] mb-2">
-                      💫 Impact
-                    </h3>
-                    <p className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-lg">
-                      Led our first fundraising campaign raising Rs.50,000 and spearheaded our presence at GHCI 2024.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <img
-                className="w-[578px] object-cover rounded-[20px]"
-                alt="Vaanya at Go Girl Community"
-                src="/img-go-girl.png"
-              />
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="absolute -bottom-12 -right-12 w-32 h-32 bg-white rounded-full p-4 shadow-xl"
-              >
-                <img
-                  src="/code-meets-community.png"
-                  alt="Code Meets Community"
-                  className="w-full h-full object-contain"
-                />
-              </motion.div>
-            </motion.div>
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  className="relative mt-[-80px]" // shift upward by 20px
+>
+  <img
+    className="w-[578px] h-[832px] object-cover rounded-[20px]"
+    alt="Vaanya at Go Girl Community"
+    src="/IMG_0426.PNG"
+  />
+</motion.div>
           </div>
         </section>
-
-        {/* Skills Section */}
-        <section id="skills">
-          <Skills />
-        </section>
-
-        {/* Timeline Section */}
-        <section id="timeline">
-          <Timeline />
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact">
-          <Contact />
-        </section>
       </div>
+      <Footer />
     </main>
   );
 };

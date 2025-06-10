@@ -1,163 +1,83 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const SkillsContainer = styled.section`
-  padding: 6rem 0;
-  background: linear-gradient(180deg, #fffef3 0%, rgba(255, 254, 243, 0.8) 100%);
+const SkillsContainer = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 0;
+`;
+
+const SkillCategory = styled.div`
+  margin-bottom: 2rem;
 `;
 
 const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 3rem auto 0;
-  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
 `;
 
-const SkillCard = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid #004ce4;
+const SkillTag = styled(motion.div)`
+  font-family: 'Lohit Tamil', Helvetica;
+  color: #004ce4;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #004ce4;
+  border-radius: 999px;
+  background: transparent;
   transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 76, 228, 0.1);
+    background: rgba(0, 76, 228, 0.02);
   }
 `;
-
-const IconWrapper = styled.div`
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-`;
-
-const skills = [
-  {
-    name: 'React.js',
-    icon: '/icons/react.svg',
-    category: 'Frontend'
-  },
-  {
-    name: 'Python',
-    icon: '/icons/python.svg',
-    category: 'Languages'
-  },
-  {
-    name: 'TypeScript',
-    icon: '/icons/typescript.svg',
-    category: 'Languages'
-  },
-  {
-    name: 'Machine Learning',
-    icon: '/icons/ml.svg',
-    category: 'AI/ML'
-  },
-  {
-    name: 'Figma',
-    icon: '/icons/figma.svg',
-    category: 'Design'
-  },
-  {
-    name: 'Node.js',
-    icon: '/icons/nodejs.svg',
-    category: 'Backend'
-  },
-  {
-    name: 'SQL',
-    icon: '/icons/sql.svg',
-    category: 'Database'
-  },
-  {
-    name: 'Git',
-    icon: '/icons/git.svg',
-    category: 'Tools'
-  },
-  {
-    name: 'C++',
-    icon: '/icons/cpp.svg',
-    category: 'Languages'
-  },
-  {
-    name: 'UI/UX',
-    icon: '/icons/uiux.svg',
-    category: 'Design'
-  },
-  {
-    name: 'Data Science',
-    icon: '/icons/data.svg',
-    category: 'Analytics'
-  },
-  {
-    name: 'LangChain',
-    icon: '/icons/langchain.svg',
-    category: 'AI/ML'
-  }
-];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  show: { y: 0, opacity: 1 }
-};
 
 export const Skills = () => {
+  const skillCategories = [
+    {
+      title: 'Programming Languages',
+      skills: ['Python', 'R', 'C++', 'C', 'Java', 'HTML', 'CSS', 'JavaScript', 'SQL', 'TypeScript', 'React.js']
+    },
+    {
+      title: 'Machine Learning',
+      skills: ['Large Language Models', 'Regression', 'Classification', 'Feature Engineering', 'Model Evaluation']
+    },
+    {
+      title: 'Tools & Libraries',
+      skills: ['Llama 3.1', 'Groq API', 'scikit-learn', 'Matplotlib', 'Seaborn', 'Streamlit', 'Gemini Studio', 'LangChain']
+    },
+    {
+      title: 'Soft Skills',
+      skills: ['Creative Problem-Solving', 'Team Collaboration', 'Leadership', 'Analytical Thinking', 'Project Management']
+    }
+  ];
+
   return (
     <SkillsContainer>
-      <div className="max-w-[1440px] mx-auto px-8">
-        <h2 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-5xl text-center">
-          technical toolkit
-        </h2>
-        
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
+      <h2 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-5xl mb-8">
+        skills
+      </h2>
+
+      {skillCategories.map((category, index) => (
+        <SkillCategory key={index}>
+          <h3 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-2xl">
+            {category.title}
+          </h3>
           <SkillsGrid>
-            {skills.map((skill, index) => (
-              <SkillCard
-                key={index}
-                variants={item}
+            {category.skills.map((skill, skillIndex) => (
+              <SkillTag
+                key={skillIndex}
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <IconWrapper>
-                  <img src={skill.icon} alt={skill.name} />
-                </IconWrapper>
-                <h3 className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-lg">
-                  {skill.name}
-                </h3>
-                <p className="text-sm text-[#004ce4]/70 mt-1">
-                  {skill.category}
-                </p>
-              </SkillCard>
+                {skill}
+              </SkillTag>
             ))}
           </SkillsGrid>
-        </motion.div>
-      </div>
+        </SkillCategory>
+      ))}
     </SkillsContainer>
   );
 };
