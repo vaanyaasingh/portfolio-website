@@ -94,69 +94,31 @@ export const Projects = (): JSX.Element => {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'E-Cell RVCE Website',
-      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      brief: 'Official website for the Entrepreneurship Cell of RV College of Engineering.',
+      title: 'Sage Financial Tracker',
+      techStack: ['React', 'TypeScript', 'Firebase', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+      brief: 'A full-stack financial management platform with real-time data synchronization and analytics.',
       description: [
-        'Designed and developed a modern, responsive website for E-Cell RVCE that showcases events, initiatives, and entrepreneurial resources.',
+        'Engineered a comprehensive financial management platform with a robust backend architecture and intuitive frontend interface.',
         [
           {
-            title: '🎨 Design & Development',
-            detail: 'Created an engaging UI with smooth animations and interactive elements using Next.js and Framer Motion.'
+            title: '🏗️ Architecture & Backend',
+            detail: 'Implemented a scalable backend using Node.js and Express, with MongoDB for data persistence. Designed RESTful APIs for expense tracking, budget management, and user authentication.'
           },
           {
-            title: '📱 Features',
-            detail: 'Implemented event showcase, team profiles, and a resource hub for aspiring entrepreneurs.'
+            title: '📊 Features & Analytics',
+            detail: 'Built advanced financial analytics with data visualization, expense categorization, and budget tracking. Integrated real-time updates using Firebase for seamless data synchronization.'
+          },
+          {
+            title: '🔐 Security & Performance',
+            detail: 'Implemented JWT-based authentication, data encryption, and role-based access control. Optimized application performance with efficient database queries and frontend caching.'
           }
         ]
       ],
-      github: 'https://github.com/vaanyaasingh/e-cell-nexus-web',
-      live: 'https://ecellrvce.vercel.app/'
+      github: 'https://github.com/vaanyaasingh/sage-financial-tracker',
+      live: 'https://chipper-naiad-b0a125.netlify.app/'
     },
     {
       id: '2',
-      title: 'Go Girl Community Website',
-      techStack: ['React', 'Figma', 'Netlify', 'Render', 'Razorpay'],
-      brief: 'A community platform designed to make suscriptions easier.',
-      description: [
-        'Built an engaging platform that connects and empowers young girls in tech, reaching over 2000+ students across India.',
-        [
-          {
-            title: '🎨 Brand & Community',
-            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community\'s mission and branding.'
-          },
-          {
-            title: '💫 CI/CD and Deployment',
-            detail: 'Developed and deployed the frontend using React, integrating Razorpay for payments and leveraging Netlify and Render for CI/CD workflows.'
-          }
-        ]
-      ],
-      github: 'https://github.com/vaanyaasingh/gogirl',
-      live: 'https://gogirl.org'
-    },
-    {
-      id: '3',
-      title: 'Decentralized Music Platform',
-      techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Web3'],
-      brief: 'A modern music streaming platform with decentralized architecture.',
-      description: [
-        'Created a decentralized music platform that reimagines how we share and stream music.',
-        [
-          {
-            title: '🎵 Features',
-            detail: 'Built a sleek music player interface with playlist management and user authentication.'
-          },
-          {
-            title: '🔗 Web3 Integration',
-            detail: 'Implemented decentralized storage and streaming capabilities for a more open music ecosystem.'
-          }
-        ]
-      ],
-      github: 'https://github.com/vaanyaasingh/musicapp',
-      live: 'https://musicapp-plum-one.vercel.app'
-    },
-    {
-      id: '4',
       title: 'Natural Language Linux Command Generator - GenBash',
       techStack: ['Python', 'Llama 3.1 8B', 'Groq API', 'argparse'],
       brief: 'A CLI tool that translates natural language into Linux commands with real-time preview.',
@@ -177,7 +139,70 @@ export const Projects = (): JSX.Element => {
       live: null
     },
     {
+      id: '3',
+      title: 'E-Cell RVCE Website',
+      techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      brief: 'Official website for the Entrepreneurship Cell of RV College of Engineering.',
+      description: [
+        'Designed and developed a modern, responsive website for E-Cell RVCE that showcases events, initiatives, and entrepreneurial resources.',
+        [
+          {
+            title: '🎨 Design & Development',
+            detail: 'Created an engaging UI with smooth animations and interactive elements using Next.js and Framer Motion.'
+          },
+          {
+            title: '📱 Features',
+            detail: 'Implemented event showcase, team profiles, and a resource hub for aspiring entrepreneurs.'
+          }
+        ]
+      ],
+      github: 'https://github.com/vaanyaasingh/e-cell-nexus-web',
+      live: 'https://ecellrvce.vercel.app/'
+    },
+    {
+      id: '4',
+      title: 'Go Girl Community Website',
+      techStack: ['React', 'Figma', 'Netlify', 'Render', 'Razorpay'],
+      brief: 'A community platform designed to make subscriptions easier.',
+      description: [
+        'Built an engaging platform that connects and empowers young girls in tech, reaching over 2000+ students across India.',
+        [
+          {
+            title: '🎨 Brand & Community',
+            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community\'s mission and branding.'
+          },
+          {
+            title: '💫 CI/CD and Deployment',
+            detail: 'Developed and deployed the frontend using React, integrating Razorpay for payments and leveraging Netlify and Render for CI/CD workflows.'
+          }
+        ]
+      ],
+      github: 'https://github.com/vaanyaasingh/gogirl',
+      live: 'https://gogirl.org'
+    },
+    {
       id: '5',
+      title: 'Decentralized Music Platform',
+      techStack: ['TypeScript', 'React', 'Tailwind CSS', 'Web3'],
+      brief: 'A modern music streaming platform with decentralized architecture.',
+      description: [
+        'Created a decentralized music platform that reimagines how we share and stream music.',
+        [
+          {
+            title: '🎵 Features',
+            detail: 'Built a sleek music player interface with playlist management and user authentication.'
+          },
+          {
+            title: '🔗 Web3 Integration',
+            detail: 'Implemented decentralized storage and streaming capabilities for a more open music ecosystem.'
+          }
+        ]
+      ],
+      github: 'https://github.com/vaanyaasingh/musicapp',
+      live: 'https://musicapp-plum-one.vercel.app'
+    },
+    {
+      id: '6',
       title: 'Materials Science ML Project',
       techStack: ['Python', 'scikit-learn', 'Matplotlib', 'Seaborn'],
       brief: 'Machine learning models for optimizing microwave-based material recycling processes.',
@@ -198,7 +223,7 @@ export const Projects = (): JSX.Element => {
       live: null
     },
     {
-      id: '6',
+      id: '7',
       title: 'KaamKar - AI-Powered Freelance Platform',
       techStack: ['React.js', 'Python', 'scikit-learn'],
       brief: 'A freelance marketplace with AI-driven skill matching and fair compensation recommendations.',
