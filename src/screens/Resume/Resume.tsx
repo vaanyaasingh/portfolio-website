@@ -92,9 +92,12 @@ export const Resume = (): JSX.Element => {
   };
 
   const handleDownloadResume = () => {
-    // Replace this path with your actual resume PDF path
-    const resumePath = '/myresume.pdf';
-    window.open(resumePath, '_blank');
+    const link = document.createElement('a');
+    link.href = '/myresume.pdf';
+    link.download = 'Vaanya_Singh_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
