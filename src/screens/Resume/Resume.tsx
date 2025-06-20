@@ -92,12 +92,7 @@ export const Resume = (): JSX.Element => {
   };
 
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/myresume.pdf';
-    link.download = 'Vaanya_Singh_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open('/vaanyares.pdf', '_blank');
   };
 
   return (
