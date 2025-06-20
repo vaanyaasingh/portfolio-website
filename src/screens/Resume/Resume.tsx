@@ -93,7 +93,7 @@ export const Resume = (): JSX.Element => {
 
   const handleDownloadResume = () => {
     // Replace this path with your actual resume PDF path
-    const resumePath = '/resume.pdf';
+    const resumePath = '/myresume.pdf';
     window.open(resumePath, '_blank');
   };
 
