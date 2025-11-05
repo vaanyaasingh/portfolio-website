@@ -94,28 +94,24 @@ export const Projects = (): JSX.Element => {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'Sage Financial Tracker',
-      techStack: ['React', 'TypeScript', 'Firebase', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-      brief: 'A full-stack financial management platform with real-time data synchronization and analytics.',
+      title: 'Go Girl Community Website',
+      techStack: ['React', 'Figma', 'Netlify', 'Render', 'Razorpay'],
+      brief: 'A community platform designed to make subscriptions easier.',
       description: [
-        'Engineered a comprehensive financial management platform with a robust backend architecture and intuitive frontend interface.',
+        'Built an engaging platform that connects and empowers young girls in tech, reaching over 2000+ students across India.',
         [
           {
-            title: '🏗️ Architecture & Backend',
-            detail: 'Implemented a scalable backend using Node.js and Express, with MongoDB for data persistence. Designed RESTful APIs for expense tracking, budget management, and user authentication.'
+            title: '🎨 Brand & Community',
+            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community\'s mission and branding.'
           },
           {
-            title: '📊 Features & Analytics',
-            detail: 'Built advanced financial analytics with data visualization, expense categorization, and budget tracking. Integrated real-time updates using Firebase for seamless data synchronization.'
-          },
-          {
-            title: '🔐 Security & Performance',
-            detail: 'Implemented JWT-based authentication, data encryption, and role-based access control. Optimized application performance with efficient database queries and frontend caching.'
+            title: '💫 CI/CD and Deployment',
+            detail: 'Developed and deployed the frontend using React, integrating Razorpay for payments and leveraging Netlify and Render for CI/CD workflows.'
           }
         ]
       ],
-      github: 'https://github.com/vaanyaasingh/sage-financial-tracker',
-      live: 'https://chipper-naiad-b0a125.netlify.app/'
+      github: 'https://github.com/vaanyaasingh/gogirl',
+      live: 'https://community.gogirlorganisation.com'
     },
     {
       id: '2',
@@ -160,25 +156,29 @@ export const Projects = (): JSX.Element => {
       live: 'https://ecellrvce.vercel.app/'
     },
     {
-      id: '4',
-      title: 'Go Girl Community Website',
-      techStack: ['React', 'Figma', 'Netlify', 'Render', 'Razorpay'],
-      brief: 'A community platform designed to make subscriptions easier.',
+      id: '1',
+      title: 'Sage Financial Tracker',
+      techStack: ['React', 'TypeScript', 'Firebase', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+      brief: 'A full-stack financial management platform with real-time data synchronization and analytics.',
       description: [
-        'Built an engaging platform that connects and empowers young girls in tech, reaching over 2000+ students across India.',
+        'Engineered a comprehensive financial management platform with a robust backend architecture and intuitive frontend interface.',
         [
           {
-            title: '🎨 Brand & Community',
-            detail: 'Developed the visual identity and community platform from scratch, focusing on user engagement and accessibility. Prototyped the full website UI/UX using Figma, aligning design with the community\'s mission and branding.'
+            title: '🏗️ Architecture & Backend',
+            detail: 'Implemented a scalable backend using Node.js and Express, with MongoDB for data persistence. Designed RESTful APIs for expense tracking, budget management, and user authentication.'
           },
           {
-            title: '💫 CI/CD and Deployment',
-            detail: 'Developed and deployed the frontend using React, integrating Razorpay for payments and leveraging Netlify and Render for CI/CD workflows.'
+            title: '📊 Features & Analytics',
+            detail: 'Built advanced financial analytics with data visualization, expense categorization, and budget tracking. Integrated real-time updates using Firebase for seamless data synchronization.'
+          },
+          {
+            title: '🔐 Security & Performance',
+            detail: 'Implemented JWT-based authentication, data encryption, and role-based access control. Optimized application performance with efficient database queries and frontend caching.'
           }
         ]
       ],
-      github: 'https://github.com/vaanyaasingh/gogirl',
-      live: 'https://gogirl.org'
+      github: 'https://github.com/vaanyaasingh/sage-financial-tracker',
+      live: 'https://chipper-naiad-b0a125.netlify.app/'
     },
     {
       id: '5',

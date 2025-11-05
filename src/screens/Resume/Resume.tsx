@@ -56,6 +56,20 @@ export const Resume = (): JSX.Element => {
 
   const experiences = [
     {
+      title: 'AI Enablement Intern',
+      company: 'SKF ISEA India',
+      period: 'August 2025 - September 2025',
+      description: '• Annotated, classified, and structured datasets to support enterprise AI workflows. \n• Designed and tested chatbot UI and backend, contributing to architecture and integration workflows. \n• Shadowed supplier demos and senior leadership calls to gain exposure to enterprise IT practices. \n• Gained hands-on experience with Azure, Snowflake, Databricks, OpenAI, and LangChain.',
+      
+    },
+    {
+      title: 'Native React Intern',
+      company: 'Avalanche Laboratory OÜ',
+      period: 'July 2025 - September 2025',
+      description: '• Completed a React Native Internship at Avalanche Laboratory OÜ for the Wine Cellar App project. \n• Developed and implemented key mobile UI screens including login, home, and wine listings using React Native and Expo.\n• Built reusable components such as a shared modal system to enhance app structure and scalability. \n• Contributed to design efforts, including creating the app’s initial logo and providing UI/UX testing feedback for the iPad version. \n• Gained hands-on experience in collaborative workflows, mobile development, and design integration.',
+      
+    },
+    {
       title: "Program Manager - Volunteer",
       company: "Go Girl Organisation",
       period: "November 2021 - Current",
@@ -92,7 +106,7 @@ export const Resume = (): JSX.Element => {
   };
 
   const handleDownloadResume = () => {
-    window.open('/vaanyares.pdf', '_blank');
+    window.open('/Vaanya Singh Sept 2025.pdf', '_blank');
   };
 
   return (
