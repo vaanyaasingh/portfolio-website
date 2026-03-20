@@ -175,7 +175,7 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
               <img
                 className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya at Go Girl Community"
-                src="/vaanya at gogirl.PNG"
+                src="/vaanya at go girl.PNG"
               />
             </motion.div>
           </div>
