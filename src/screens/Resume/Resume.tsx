@@ -152,12 +152,10 @@ export const Resume = (): JSX.Element => {
           </ExpandableCard>
 
           {/* Experience Section */}
-          <div className="mx-auto w-full max-w-[720px]">
-            <ExperienceToggle
-              expanded={expandedSection === "experience"}
-              onToggle={() => toggleSection("experience")}
-            />
-          </div>
+          <ExperienceToggle
+            expanded={expandedSection === "experience"}
+            onToggle={() => toggleSection("experience")}
+          />
 
           {/* Skills Section */}
           <ExpandableCard onClick={() => toggleSection('skills')}>
