@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   GithubIcon,
   InstagramIcon,
@@ -7,8 +7,11 @@ import {
 import { Card, CardContent } from "../../components/ui/card";
 import { motion } from "framer-motion";
 import { Footer } from "../../components/Footer";
+import { ExperienceToggle } from "../../components/ExperienceToggle";
 
 export const AboutMe = (): JSX.Element => {
+  const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
+
   const socialLinks = [
     {
       icon: <GithubIcon className="w-[31px] h-[31px]" />,
@@ -90,6 +93,17 @@ export const AboutMe = (): JSX.Element => {
               (in progress)
             </span>
           </motion.div>
+
+          {/* Experience Toggle */}
+          <div className="mt-10 w-full max-w-[560px] px-4">
+            <div className="mx-auto">
+              <ExperienceToggle
+                expanded={isExperienceExpanded}
+                onToggle={() => setIsExperienceExpanded(prev => !prev)}
+                variant="compact"
+              />
+            </div>
+          </div>
         </section>
 
         {/* About Section */}
@@ -105,7 +119,7 @@ export const AboutMe = (): JSX.Element => {
               <img
                 className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya Singh"
-                src="/img-0417-1.png"
+                src="/vaanya pic.PNG"
               />
             </motion.div>
 
@@ -161,7 +175,7 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
               <img
                 className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya at Go Girl Community"
-                src="/IMG_0426.PNG"
+                src="/vaanya at gogirl.PNG"
               />
             </motion.div>
           </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Send } from 'lucide-react';
+import { ExperienceToggle } from "./ExperienceToggle";
 
 const ContactContainer = styled.section`
   padding: 6rem 0;
@@ -111,6 +112,7 @@ export const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
 
   const validateForm = () => {
     const newErrors = {
@@ -178,6 +180,14 @@ export const Contact = () => {
         <h2 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-5xl text-center">
           let's connect
         </h2>
+
+        {/* Experience Toggle */}
+        <div className="mt-10 w-full max-w-[720px] mx-auto">
+          <ExperienceToggle
+            expanded={isExperienceExpanded}
+            onToggle={() => setIsExperienceExpanded(prev => !prev)}
+          />
+        </div>
         
         <FormContainer>
           <form onSubmit={handleSubmit}>

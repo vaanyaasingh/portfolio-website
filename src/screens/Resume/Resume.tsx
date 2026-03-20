@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "../../components/ui/card";
-import { DownloadIcon, MailIcon, PhoneIcon, MapPinIcon, ChevronDown, Github, Linkedin } from "lucide-react";
+import { DownloadIcon, MailIcon, MapPinIcon, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { Footer } from "../../components/Footer";
+import { ExperienceToggle } from "../../components/ExperienceToggle";
 
 const ExpandableCard = styled(Card)`
   border: 2px solid #004ce4;
@@ -27,19 +28,6 @@ const SkillTag = styled.span`
   border-radius: 999px;
 `;
 
-const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #004ce4;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
-`;
-
 export const Resume = (): JSX.Element => {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
@@ -53,41 +41,6 @@ export const Resume = (): JSX.Element => {
     "Tools and Libraries": ["Llama 3.1", "Groq API", "scikit-learn", "Matplotlib", "Seaborn", "Streamlit", "Gemini Studio", "LangChain"],
     "Soft Skills": ["Creative Problem-Solving", "Team Collaboration", "Leadership", "Analytical Thinking", "Project Management"]
   };
-
-  const experiences = [
-    {
-      title: 'AI Enablement Intern',
-      company: 'SKF ISEA India',
-      period: 'August 2025 - September 2025',
-      description: '• Annotated, classified, and structured datasets to support enterprise AI workflows. \n• Designed and tested chatbot UI and backend, contributing to architecture and integration workflows. \n• Shadowed supplier demos and senior leadership calls to gain exposure to enterprise IT practices. \n• Gained hands-on experience with Azure, Snowflake, Databricks, OpenAI, and LangChain.',
-      
-    },
-    {
-      title: 'Native React Intern',
-      company: 'Avalanche Laboratory OÜ',
-      period: 'July 2025 - September 2025',
-      description: '• Completed a React Native Internship at Avalanche Laboratory OÜ for the Wine Cellar App project. \n• Developed and implemented key mobile UI screens including login, home, and wine listings using React Native and Expo.\n• Built reusable components such as a shared modal system to enhance app structure and scalability. \n• Contributed to design efforts, including creating the app’s initial logo and providing UI/UX testing feedback for the iPad version. \n• Gained hands-on experience in collaborative workflows, mobile development, and design integration.',
-      
-    },
-    {
-      title: "Program Manager - Volunteer",
-      company: "Go Girl Organisation",
-      period: "November 2021 - Current",
-      description: "• Established and scaled 4 nationwide coding education programs, empowering 100+ underprivileged girls\n• Launched our first 'Friend'-raising campaign raising Rs.50,000\n• Spearheaded the Go girl's flagship presence at GHCI 2024, orchestrating marketing strategy and booth experience"
-    },
-    {
-      title: "Tech Intern",
-      company: "Healthians",
-      period: "July 2023 - August 2023",
-      description: "• Developed a Machine Learning Model using Python, ChatGPT, and LangChain for personalized blood test recommendations\n• Implemented prompt engineering techniques to enhance model accuracy by 40%"
-    },
-    {
-      title: "Senior Associate",
-      company: "Entrepreneurship Cell, RVCE",
-      period: "2023 - Present",
-      description: "• Building the club website using Next.js and TypeScript\n• Leading design and tech initiatives\n• Organizing events and mentoring junior members"
-    }
-  ];
 
   const education = {
     degree: "BE in Computer Science",
@@ -199,56 +152,12 @@ export const Resume = (): JSX.Element => {
           </ExpandableCard>
 
           {/* Experience Section */}
-          <ExpandableCard onClick={() => toggleSection('experience')}>
-            <CardContent className="p-6 md:p-8">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="font-['Lora',Helvetica] font-normal text-[#004ce4] text-2xl md:text-3xl">
-                  Experience
-                </h2>
-                <motion.div
-                  animate={{ rotate: expandedSection === 'experience' ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="w-6 h-6 text-[#004ce4]" />
-                </motion.div>
-              </div>
-
-              <AnimatePresence>
-                {expandedSection === 'experience' && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="space-y-6">
-                      {experiences.map((exp, index) => (
-                        <div key={index} className="border-t-2 border-[#004ce4]/10 pt-6">
-                          <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-2">
-                            <div>
-                              <h3 className="font-['Lora',Helvetica] text-[#004ce4] text-xl">
-                                {exp.title}
-                              </h3>
-                              <p className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-lg">
-                                {exp.company}
-                              </p>
-                            </div>
-                            <span className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-base bg-[#004ce4]/10 px-3 py-1 rounded-full">
-                              {exp.period}
-                            </span>
-                          </div>
-                          <p className="font-['Lohit_Tamil-Regular',Helvetica] text-[#004ce4] text-base leading-relaxed whitespace-pre-line">
-                            {exp.description}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </CardContent>
-          </ExpandableCard>
+          <div className="mx-auto w-full max-w-[720px]">
+            <ExperienceToggle
+              expanded={expandedSection === "experience"}
+              onToggle={() => toggleSection("experience")}
+            />
+          </div>
 
           {/* Skills Section */}
           <ExpandableCard onClick={() => toggleSection('skills')}>
