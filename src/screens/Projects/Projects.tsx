@@ -93,6 +93,31 @@ export const Projects = (): JSX.Element => {
 
   const projects: Project[] = [
     {
+      id: '0',
+      title: 'JobReady — AI-Powered Vocational Learning Platform',
+      techStack: ['React 18', 'TypeScript', 'Node.js', 'MongoDB', 'Groq API', 'i18next'],
+      brief: 'A full-stack vocational learning platform helping students build employment-ready skills with AI.',
+      description: [
+        'Built a complete MERN platform with JWT auth, email OTP verification, and structured video courses. Integrated LLaMA 3.1 via Groq API for an AI tutor that generates quizzes, study notes, and answers doubts across English, Hindi, Kannada, and Hinglish.',
+        [
+          {
+            title: '🤖 AI Tutor & Course Platform',
+            detail: 'Built a complete MERN platform with JWT auth, email OTP verification, and structured video courses. Integrated LLaMA 3.1 via Groq API for an AI tutor that generates quizzes, study notes, and answers doubts across English, Hindi, Kannada, and Hinglish.'
+          },
+          {
+            title: '🌐 Multilingual & Full-Stack Architecture',
+            detail: 'Designed a RESTful API with 10+ endpoints across auth, courses, AI, and progress tracking. Implemented full i18n support using i18next and TanStack Query for client-side data fetching and caching.'
+          },
+          {
+            title: '📄 Resume Builder & Assessments',
+            detail: 'Built an in-app PDF resume builder that exports skills earned through completed courses, alongside skills assessments to evaluate job readiness — all with persistent progress tracking via MongoDB.'
+          }
+        ]
+      ],
+      github: 'https://github.com/vaanyaasingh/JobReady',
+      live: null
+    },
+    {
       id: '1',
       title: 'Go Girl Community Website',
       techStack: ['React', 'Figma', 'Netlify', 'Render', 'Razorpay'],
