@@ -59,7 +59,7 @@ export const Resume = (): JSX.Element => {
   };
 
   const handleDownloadResume = () => {
-    window.open('/Vaanya Singh Sept 2025.pdf', '_blank');
+    window.open('/Vaanya Singh April 26.pdf', '_blank');
   };
 
   return (
