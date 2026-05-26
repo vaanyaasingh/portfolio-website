@@ -1,24 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import { AboutMe } from "./screens/AboutMe";
 import { Projects } from "./screens/Projects";
 import { Resume } from "./screens/Resume";
 import "./styles/globals.css";
 
-function App() {
+function Layout() {
   return (
-    <Router>
-      <div className="min-h-screen bg-[#fffef3]">
-        <Header />
-        <Routes>
-          <Route path="/" element={<AboutMe />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Resume />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="min-h-screen bg-[#fffef3]">
+      <Header />
+      <Outlet />
+    </div>
   );
 }
 
-export default App;
+export const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <AboutMe /> },
+      { path: "projects", element: <Projects /> },
+      { path: "contact", element: <Resume /> },
+    ],
+  },
+];

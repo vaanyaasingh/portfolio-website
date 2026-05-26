@@ -14,7 +14,7 @@ const MobileMenuButton = styled.button`
   }
 `;
 
-const Backdrop = styled.div<{ isOpen: boolean }>`
+const Backdrop = styled.div<{ $isOpen: boolean }>`
   display: none;
   @media (max-width: 768px) {
     display: block;
@@ -25,17 +25,17 @@ const Backdrop = styled.div<{ isOpen: boolean }>`
     bottom: 0;
     background: rgba(0, 76, 228, 0.1);
     backdrop-filter: blur(4px);
-    opacity: ${props => props.isOpen ? 1 : 0};
-    pointer-events: ${props => props.isOpen ? 'auto' : 'none'};
+    opacity: ${props => props.$isOpen ? 1 : 0};
+    pointer-events: ${props => props.$isOpen ? 'auto' : 'none'};
     transition: opacity 0.3s ease;
     z-index: 49;
   }
 `;
 
-const Nav = styled.nav<{ isOpen: boolean }>`
+const Nav = styled.nav<{ $isOpen: boolean }>`
   display: flex;
   gap: 3rem;
-  
+
   @media (max-width: 768px) {
     position: fixed;
     top: 0;
@@ -45,9 +45,9 @@ const Nav = styled.nav<{ isOpen: boolean }>`
     padding: 6rem 2rem;
     width: 100%;
     max-width: 300px;
-    transform: translateX(${props => props.isOpen ? '0' : '100%'});
+    transform: translateX(${props => props.$isOpen ? '0' : '100%'});
     transition: transform 0.3s ease;
-    box-shadow: ${props => props.isOpen ? '-4px 0 20px rgba(0, 0, 0, 0.1)' : 'none'};
+    box-shadow: ${props => props.$isOpen ? '-4px 0 20px rgba(0, 0, 0, 0.1)' : 'none'};
     flex-direction: column;
     gap: 2rem;
     z-index: 50;
@@ -101,10 +101,10 @@ export const Header = (): JSX.Element => {
             )}
           </MobileMenuButton>
 
-          <Backdrop isOpen={isMenuOpen} onClick={closeMenu} />
+          <Backdrop $isOpen={isMenuOpen} onClick={closeMenu} />
 
           {/* Navigation */}
-          <Nav isOpen={isMenuOpen}>
+          <Nav $isOpen={isMenuOpen}>
             {navItems.map((item) => (
               <Link
                 key={item.key}
