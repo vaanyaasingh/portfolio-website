@@ -114,10 +114,10 @@ export const AboutMe = (): JSX.Element => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative flex-shrink-0 w-full md:w-auto"
+              className="relative flex-shrink-0 w-full lg:w-[42%] xl:w-auto"
             >
               <img
-                className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
+                className="w-full h-[400px] lg:h-[600px] xl:w-[578px] xl:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya Singh"
                 src="/vaanya pic.PNG"
               />
@@ -127,7 +127,7 @@ export const AboutMe = (): JSX.Element => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-full md:max-w-[646px] lg:mt-[200px]"
+              className="max-w-full lg:flex-1 lg:min-w-0 lg:mt-[80px] xl:mt-[200px]"
             >
               <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-xl md:text-2xl tracking-[-0.64px] leading-normal">
               I'm a Computer Science student at RV College of Engineering 🧑‍💻 who loves building things that are useful, thoughtful, and sometimes just fun ✨
@@ -144,12 +144,12 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
           </div>
 
           {/* Go Girl Community Section */}
-          <div className="flex gap-8 md:gap-12 flex-col-reverse lg:flex-row items-center lg:items-start mt-0 lg:mt-[-100px]">
+          <div className="flex gap-8 md:gap-12 flex-col-reverse lg:flex-row items-center lg:items-start mt-0 xl:mt-[-80px]">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="max-w-full md:max-w-[646px] lg:mt-[100px] lg:ml-[100px]"
+              className="max-w-full lg:flex-1 lg:min-w-0 lg:mt-[60px] xl:mt-[100px] xl:ml-[100px]"
             >
               <p className="font-['Lohit_Tamil-Regular',Helvetica] font-normal text-[#004ce4] text-xl md:text-2xl tracking-[-0.64px] leading-relaxed">
               I'm passionate about making tech more inclusive. As a Program Manager at Go Girl, 
@@ -170,10 +170,10 @@ Currently, I'm exploring how I can bring my love for design 🎨 and tech 🛠�
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative mt-0 lg:mt-[-80px] w-full md:w-auto"
+              className="relative mt-0 w-full lg:w-[42%] xl:w-auto"
             >
               <img
-                className="w-full md:w-[578px] h-[400px] md:h-[832px] object-cover rounded-[20px]"
+                className="w-full h-[400px] lg:h-[600px] xl:w-[578px] xl:h-[832px] object-cover rounded-[20px]"
                 alt="Vaanya at Go Girl Community"
                 src="/vaanya at go girl.PNG"
               />
