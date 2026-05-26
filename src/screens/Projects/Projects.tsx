@@ -93,6 +93,31 @@ export const Projects = (): JSX.Element => {
 
   const projects: Project[] = [
     {
+      id: '8',
+      title: 'Project Raseed — AI-Powered Financial & Compliance Copilot',
+      techStack: ['Next.js', 'FastAPI', 'Python', 'Gemini API', 'LangGraph', 'MCP', 'Tesseract OCR', 'ChromaDB'],
+      brief: 'An AI-powered financial and compliance copilot for Indian SMEs — automating GST notice interpretation, invoice processing, cash flow analysis, and compliance deadline tracking.',
+      description: [
+        'Built a multi-agent AI system that consolidates the roles of a Chartered Accountant, GST Practitioner, and Financial Analyst into a single automated platform for Indian SMEs.',
+        [
+          {
+            title: '🤖 Multi-Agent AI Architecture',
+            detail: 'Designed 5 specialized agents (GST & Tax, Invoice Management, Finance, Compliance, Communication) coordinated by a LangGraph + MCP orchestrator. Each agent handles a distinct compliance domain, with the orchestrator routing tasks and surfacing cross-domain insights — e.g., linking missing invoices to the GST notice that triggered them.'
+          },
+          {
+            title: '📄 Document Processing & Intelligence',
+            detail: 'Built an OCR pipeline using Tesseract and PyMuPDF for scanned and digital PDFs, with pdfplumber for structured table extraction from invoices. Integrated ChromaDB as a vector store for RAG over compliance documents, enabling accurate retrieval-augmented answers to GST and regulatory queries.'
+          },
+          {
+            title: '⚙️ End-to-End SME Compliance Automation',
+            detail: 'Automates the full compliance lifecycle: interprets GST notices in plain language, generates filing-ready summaries, tracks deadlines, manages the invoice lifecycle end-to-end, and detects financial anomalies using scikit-learn — significantly reducing CA fees and manual overhead for SME owners.'
+          }
+        ]
+      ],
+      github: 'https://github.com/vaanyaasingh/project-raseed',
+      live: 'https://project-raseed.vercel.app'
+    },
+    {
       id: '0',
       title: 'JobReady — AI-Powered Vocational Learning Platform',
       techStack: ['React 18', 'TypeScript', 'Node.js', 'MongoDB', 'Groq API', 'i18next'],
